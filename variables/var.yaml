@@ -1,9 +1,0 @@
-mydir: /website_source_code
-file: /tmp/test1.txt
-owner: test_user
-group: test_user
-pkg:
-  - httpd
-  - nfs-utils
-  - tree
-  - samba
