@@ -1,0 +1,21 @@
+{
+  "name": "{{ db_details.connector_name }}",
+  "config": {
+    "database.history.kafka.topic": "{{db_details.database_history_kafka_topic}}",
+    "schema.history.internal.kafka.bootstrap.servers": "{{bootstrap_servers}}",
+    "schema.history.internal.kafka.topic": "customer.test",
+    "name": "{{ db_details.connector_name }}",
+    "connector.class": "io.debezium.connector.mysql.MySqlConnector",
+    "topic.prefix": "{{db_details.topic_prefix}}",
+    "database.hostname": "{{db_details.db_host}}",
+    "database.port": "{{db_details.db_port}}",
+    "database.user": "{{db_details.db_user}}",
+    "database.password": "{{db_details.db_password}}",
+    "database.server.id": "{{db_details.server_id}}",
+    "table.include.list": "{{db_details.test_table_list}}",
+    "include.schema.changes": "false",
+    "include.schema.comments": "false",
+    "table.ignore.builtin": "true",
+    "database.include.list": "{{db_details.test_db_include_list}}"
+  }
+}
