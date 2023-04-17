@@ -1,0 +1,61 @@
+################COMMON VARIABLES#######################################
+bootstrap_servers: "localhost:9092"
+ANSIBLE_LIBRARY: /Users/jonuchauhan/.ansible/collections/ansible_collections/confluent/platform/plugins/modules
+DEFAULT_MODULE_PATH: /Users/jonuchauhan/.ansible/collections/ansible_collections/confluent/platform/plugins/modules:/usr/share/ansible/plugins/modules
+library: /Users/jonuchauhan/.ansible/collections/ansible_collections/confluent/platform/plugins/modules/
+test1: jonuchauhan
+###################CUSTOMER################################################
+
+mysql:
+   
+   dbname:
+      - CUSTOMER
+      - SALES
+
+
+   CUSTOMER:
+      connector_name: MySqlConnectorConnector_CUSTOMER
+      test_db_include_list: "CUSTOMER"
+      test_tables:
+         - CUSTOMER
+         - DEPT
+         - CUST_TGT
+      test_table_list: "CUSTOMER, DEPT, CUST_TGT"
+      db_host: "{{credentials.mysql.CUSTOMER.db_host}}"
+      db_port: "{{credentials.mysql.CUSTOMER.db_port}}"
+      db_name: "{{credentials.mysql.CUSTOMER.db_name}}"
+      db_user: "{{credentials.mysql.CUSTOMER.db_user}}"
+      db_password: "{{credentials.mysql.CUSTOMER.db_password}}"
+      server_id: "{{credentials.mysql.CUSTOMER.server_id}}"
+      database_history_kafka_topic: cutomer.test
+      topic_prefix: CUSTOMER
+
+
+   SALES:
+      connector_name: MySqlConnectorConnector_SALES
+      test_db_include_list: "SALES"
+      test_tables:
+         - CUSTOMERS
+         - ORDERS
+         - ORDER_ITEMS
+         - PRODUCTS
+      test_table_list: "CUSTOMERS, ORDERS, ORDER_ITEMS, PRODUCTS"
+      db_host: "{{credentials.mysql.SALES.db_host}}"
+      db_port: "{{credentials.mysql.SALES.db_port}}"
+      db_name: "{{credentials.mysql.SALES.db_name}}"
+      db_user: "{{credentials.mysql.SALES.db_user}}"
+      db_password: "{{credentials.mysql.SALES.db_password}}"
+      server_id: "{{credentials.mysql.SALES.server_id}}"
+      database_history_kafka_topic: sales.test
+      topic_prefix: SALES
+
+
+connector_dir: /Users/jonuchauhan/ansible/kafka_connectors_configs
+test: {}
+active_connectors: []
+hello: {}
+plugin_name: debezium/debezium-connector-mysql:1.6.1.Final
+kafka_connect_rest_url: "http://localhost:8083"
+connector_name: debezium-connector-mysql
+connectors_name: []
+prod_active_connectors: []
