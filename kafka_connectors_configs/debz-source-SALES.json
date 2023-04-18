@@ -10,7 +10,7 @@
     "database.hostname": "localhost",
     "database.port": "3306",
     "database.user": "root",
-    "database.password": "jonu",
+    "database.password": "***",
     "database.server.id": "1",
     "table.include.list": "CUSTOMERS, ORDERS, ORDER_ITEMS, PRODUCTS",
     "include.schema.changes": "false",
